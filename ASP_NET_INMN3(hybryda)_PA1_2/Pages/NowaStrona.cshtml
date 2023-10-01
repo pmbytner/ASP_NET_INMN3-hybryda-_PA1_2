@@ -1,6 +1,11 @@
 ﻿@page
 @model ASP_NET_INMN3_hybryda__PA1_2.Pages.NowaStronaModel
 @{
+    /*
+     * ćwiczenie:
+     * przerobić tak, aby wyświetlało kolumnę "Województwo" - przynajmniej wtedy, gdy wyświetlamy wszystkie
+     * zrobić podwójną pętlę przy wyświetlaniu wszystkich miast, zamiast spłaszczania
+     */
     string[] etykiety = { "Miasto", "Populacja", "Powierzchnia" };
     string[] województwa = { "Kujawsko-Pomorskie", "Pomorskie", "Warmińsko-Mazurskie" };
     (string Nazwa, uint Populacja, decimal Powierzchnia)[] miasta;
