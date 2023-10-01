@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_NET_INMN3(hybryda)_PA1_2", "ASP_NET_INMN3(hybryda)_PA1_2\ASP_NET_INMN3(hybryda)_PA1_2.csproj", "{CAD8EDCA-7E25-4A22-B16A-CE8EC6E2256E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAD8EDCA-7E25-4A22-B16A-CE8EC6E2256E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD8EDCA-7E25-4A22-B16A-CE8EC6E2256E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD8EDCA-7E25-4A22-B16A-CE8EC6E2256E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD8EDCA-7E25-4A22-B16A-CE8EC6E2256E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4526A195-1850-43EC-963B-7ECB799FDEA7}
+	EndGlobalSection
+EndGlobal
