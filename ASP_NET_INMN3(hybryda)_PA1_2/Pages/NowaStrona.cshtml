@@ -1,6 +1,73 @@
 ﻿@page
 @model ASP_NET_INMN3_hybryda__PA1_2.Pages.NowaStronaModel
 @{
+    string[] etykiety = { "Miasto", "Populacja", "Powierzchnia" };
+    string[] województwa = { "Kujawsko-Pomorskie", "Pomorskie", "Warmińsko-Mazurskie" };
+    (string Nazwa, uint Populacja, decimal Powierzchnia)[] miasta;
+    Dictionary<
+        string,
+        (string Nazwa, uint Populacja, decimal Powierzchnia)[]
+        > miastoPoWojewództwach = new()
+    {
+        ["Kujawsko-Pomorskie"] = new (string Nazwa, uint Populacja, decimal Powierzchnia)[]
+        {
+            ("Grudziądz", 110000, 7.9m)
+        },
+        ["Pomorskie"] = new (string Nazwa, uint Populacja, decimal Powierzchnia)[]
+        {
+            ("Gdańsk", 500000, 12.3m),
+            ("Gdynia", 250000, 14.5m),
+            ("Sopot", 30000, 5.1m),
+        },
+        ["Warmińsko-Mazurskie"] = new (string Nazwa, uint Populacja, decimal Powierzchnia)[]
+        {
+            ("Elbląg", 120000, 9.3m),
+        },
+    };
+    if ((string?)Request.Query["województwo"] != null && miastoPoWojewództwach.ContainsKey(Request.Query["województwo"]!))
+        miasta = miastoPoWojewództwach[Request.Query["województwo"]!];
+    else
+    {
+        List<(string, uint, decimal)> lista = new();
+        foreach ((string, uint, decimal)[] miastaWWojewództwie in miastoPoWojewództwach.Values)
+            lista.AddRange(miastaWWojewództwie);
+        miasta = lista.ToArray();
+    }
 }
 
 <h1>Nowa strona</h1>
+<p>
+    <strong>Wybrane województwo:</strong> @Request.Query["województwo"]
+</p>
+<ul>
+    <li>
+        <a href="?">Wszystko</a>
+    </li>
+    @foreach(string województwo in województwa)
+    {
+        <li>
+            <a href="?województwo=@województwo">@województwo</a>"
+        </li>
+    }
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            @foreach(string etykieta in etykiety)
+            {
+                <th>@etykieta</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ((string Nazwa, uint Populacja, decimal Powierzchnia) miasto in miasta)
+        {
+            <tr>
+                <td>@miasto.Nazwa</td>
+                <td>@miasto.Populacja</td>
+                <td>@miasto.Powierzchnia</td>
+            </tr>
+        }
+    </tbody>
+</table>
